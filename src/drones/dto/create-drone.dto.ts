@@ -9,7 +9,7 @@ import {
 } from 'class-validator';
 import { DroneModels } from 'src/enums';
 
-export class CreateDronDto {
+export class CreateDroneDto {
   @IsString()
   @MaxLength(100)
   @MinLength(1)

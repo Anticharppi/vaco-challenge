@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from '../prisma.service';
+import { PrismaService } from './prisma.service';
 import { Prisma } from '@prisma/client';
 import { DroneStates } from 'src/enums';
 
 @Injectable()
-export class DronesRepositoryService {
+export class DronesRepository {
   constructor(private readonly db: PrismaService) {}
 
   public async create(data: Prisma.DroneCreateInput) {

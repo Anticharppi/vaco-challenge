@@ -1,30 +1,27 @@
 import {
-  Body,
   Controller,
   Get,
+  Post,
+  Body,
   HttpCode,
   HttpStatus,
-  Post,
 } from '@nestjs/common';
-import { CreateDronDto } from './dtos';
-import { CreateDroneService, ListAvailableToLoadService } from './services';
+import { DronesService } from './drones.service';
+import { CreateDroneDto } from './dto/create-drone.dto';
 
 @Controller('drones')
 export class DronesController {
-  constructor(
-    private readonly createDronService: CreateDroneService,
-    private readonly listAvailableToLoadService: ListAvailableToLoadService,
-  ) {}
+  constructor(private readonly dronesService: DronesService) {}
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  public async create(@Body() createDronDto: CreateDronDto) {
-    return await this.createDronService.execute(createDronDto);
+  public async create(@Body() createDronDto: CreateDroneDto) {
+    return await this.dronesService.create(createDronDto);
   }
 
   @Get('available-to-load')
   @HttpCode(HttpStatus.OK)
   public async availableToLoad() {
-    return await this.listAvailableToLoadService.execute();
+    return await this.dronesService.getAvailableToLoad();
   }
 }

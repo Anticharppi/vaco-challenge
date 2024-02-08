@@ -1,1 +1,1 @@
-export * from './drones-repository';
+export * from './drones.repository';

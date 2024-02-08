@@ -2,23 +2,13 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DronesController } from './drones/drones.controller';
-import {
-  CreateDroneService,
-  ListAvailableToLoadService,
-} from './drones/services';
-import { DronesRepositoryService } from './repositories/drones-repository/drones-repository.service';
-import { PrismaService } from './repositories/prisma.service';
-import {} from './drones/services/list-available-to-load/list-available-to-load.service';
+import { MedicationsModule } from './medications/medications.module';
+import { DronesModule } from './drones/drones.module';
+import { RepositoriesModule } from './repositories/repositories.module';
 
 @Module({
-  imports: [],
+  imports: [MedicationsModule, DronesModule, RepositoriesModule],
   controllers: [AppController, DronesController],
-  providers: [
-    AppService,
-    PrismaService,
-    CreateDroneService,
-    ListAvailableToLoadService,
-    DronesRepositoryService,
-  ],
+  providers: [AppService],
 })
 export class AppModule {}
