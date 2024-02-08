@@ -5,6 +5,7 @@ import { DronesController } from './drones/drones.controller';
 import { MedicationsModule } from './medications/medications.module';
 import { DronesModule } from './drones/drones.module';
 import { RepositoriesModule } from './repositories/repositories.module';
+import { ImageUploaderService } from './image-uploader/image-uploader.service';
 
 @Module({
   imports: [MedicationsModule, DronesModule, RepositoriesModule],

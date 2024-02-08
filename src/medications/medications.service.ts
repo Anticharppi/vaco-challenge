@@ -1,26 +1,20 @@
 import { Injectable } from '@nestjs/common';
 import { CreateMedicationDto } from './dto/create-medication.dto';
-import { UpdateMedicationDto } from './dto/update-medication.dto';
+import { CreateMedicationUseCase } from './use-cases';
 
 @Injectable()
 export class MedicationsService {
-  create(createMedicationDto: CreateMedicationDto) {
-    return 'This action adds a new medication';
-  }
+  constructor(
+    private readonly createMedicationUseCase: CreateMedicationUseCase,
+  ) {}
 
-  findAll() {
-    return `This action returns all medications`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} medication`;
-  }
-
-  update(id: number, updateMedicationDto: UpdateMedicationDto) {
-    return `This action updates a #${id} medication`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} medication`;
+  public async create(
+    createMedicationDto: CreateMedicationDto,
+    file: Express.Multer.File,
+  ) {
+    return await this.createMedicationUseCase.execute(
+      createMedicationDto,
+      file,
+    );
   }
 }

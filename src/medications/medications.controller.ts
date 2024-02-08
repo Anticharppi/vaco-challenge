@@ -1,34 +1,35 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  UseInterceptors,
+  UploadedFile,
+  ParseFilePipe,
+  MaxFileSizeValidator,
+  FileTypeValidator,
+} from '@nestjs/common';
 import { MedicationsService } from './medications.service';
 import { CreateMedicationDto } from './dto/create-medication.dto';
-import { UpdateMedicationDto } from './dto/update-medication.dto';
+import { FileInterceptor } from '@nestjs/platform-express';
 
 @Controller('medications')
 export class MedicationsController {
   constructor(private readonly medicationsService: MedicationsService) {}
 
   @Post()
-  create(@Body() createMedicationDto: CreateMedicationDto) {
-    return this.medicationsService.create(createMedicationDto);
-  }
-
-  @Get()
-  findAll() {
-    return this.medicationsService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.medicationsService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateMedicationDto: UpdateMedicationDto) {
-    return this.medicationsService.update(+id, updateMedicationDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.medicationsService.remove(+id);
+  @UseInterceptors(FileInterceptor('file'))
+  public async create(
+    @UploadedFile(
+      new ParseFilePipe({
+        validators: [
+          new MaxFileSizeValidator({ maxSize: 1048576 }), // Max 1MB
+          new FileTypeValidator({ fileType: 'image/*' }),
+        ],
+      }),
+    )
+    file: Express.Multer.File,
+    @Body() createMedicationDto: CreateMedicationDto,
+  ) {
+    return this.medicationsService.create(createMedicationDto, file);
   }
 }
