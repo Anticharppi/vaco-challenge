@@ -36,4 +36,11 @@ describe('GetAvailableToLoadUseCase', () => {
     const result = await getAvailableToLoadUseCase.execute();
     expect(result).toHaveLength(1);
   });
+
+  it('should return an empty array when there are no drones available to load', async () => {
+    getAvailableToLoadMock.mockResolvedValue([]);
+
+    const result = await getAvailableToLoadUseCase.execute();
+    expect(result).toHaveLength(0);
+  });
 });
