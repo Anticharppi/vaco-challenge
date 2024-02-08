@@ -48,4 +48,14 @@ export class DronesRepository {
       },
     });
   }
+
+  public async getAll() {
+    return await this.db.drone.findMany({
+      select: {
+        id: true,
+        batteryCapacity: true,
+        state: true,
+      },
+    });
+  }
 }
