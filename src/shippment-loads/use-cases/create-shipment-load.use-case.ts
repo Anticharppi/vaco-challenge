@@ -4,7 +4,7 @@ import {
   ShipmentLoadsRepository,
   ShipmentsRepository,
 } from 'src/repositories';
-import { CreateShippmentLoadDto } from '../dto/create-shippment-load.dto';
+import { CreateShipmentLoadDto } from '../dto/create-shippment-load.dto';
 import { ShipmentStatus } from 'src/enums';
 
 @Injectable()
@@ -15,7 +15,7 @@ export class CreateShipmentLoadUseCase {
     private readonly shipmentLoadsRepository: ShipmentLoadsRepository,
   ) {}
 
-  public async execute(createShipmentLoadDto: CreateShippmentLoadDto) {
+  public async execute(createShipmentLoadDto: CreateShipmentLoadDto) {
     const shipment = await this.shipmentsRepository.getById(
       createShipmentLoadDto.shipmentId,
     );
@@ -52,10 +52,14 @@ export class CreateShipmentLoadUseCase {
       );
 
     const currentWeight = currentShipmentLoad.reduce((acc, curr) => {
-      return acc + curr.medication.weight;
+      return acc + curr.medication.weight * curr.medicationAmount;
     }, 0);
 
-    if (currentWeight + medication.weight > shipment.drone.weightLimit) {
+    if (
+      currentWeight +
+        medication.weight * createShipmentLoadDto.medicationAmount >
+      shipment.drone.weightLimit
+    ) {
       throw new HttpException(
         'Shipment is not available for loading medications because it is overweight',
         HttpStatus.CONFLICT,

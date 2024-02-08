@@ -44,11 +44,12 @@ model Shipment {
 }
 
 model ShipmentLoad {
-  id           String     @id @default(uuid())
-  medication   Medication @relation(fields: [medicationId], references: [id])
-  medicationId String     @map("medication_id")
-  shipment     Shipment   @relation(fields: [shipmentId], references: [id])
-  shipmentId   String     @map("shipment_id")
+  id               String     @id @default(uuid())
+  medication       Medication @relation(fields: [medicationId], references: [id])
+  medicationId     String     @map("medication_id")
+  shipment         Shipment   @relation(fields: [shipmentId], references: [id])
+  shipmentId       String     @map("shipment_id")
+  medicationAmount Int        @map("medication_amount")
 
   @@map("shipment_loads")
 }

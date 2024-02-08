@@ -2,15 +2,16 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from './prisma.service';
 import { CreateShipmentDto } from 'src/shipments/dto/create-shipment.dto';
 import { UpdateShipmentStatusDto } from 'src/shipments/dto/update-shipment-status.dto';
-import { CreateShippmentLoadDto } from 'src/shippment-loads/dto/create-shippment-load.dto';
+import { CreateShipmentLoadDto } from 'src/shippment-loads/dto/create-shippment-load.dto';
 
 @Injectable()
 export class ShipmentLoadsRepository {
   constructor(private readonly db: PrismaService) {}
 
-  public async create(data: CreateShippmentLoadDto) {
+  public async create(data: CreateShipmentLoadDto) {
     return await this.db.shipmentLoad.create({
       data: {
+        medicationAmount: data.medicationAmount,
         medication: {
           connect: {
             id: data.medicationId,

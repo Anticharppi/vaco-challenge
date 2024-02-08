@@ -45,6 +45,21 @@ export class ShipmentsRepository {
     });
   }
 
+  public getByDroneId(droneId: string) {
+    return this.db.shipment.findMany({
+      where: {
+        droneId,
+      },
+      include: {
+        shipmentLoads: {
+          include: {
+            medication: true,
+          },
+        },
+      },
+    });
+  }
+
   public async getAll() {
     return await this.db.shipment.findMany();
   }

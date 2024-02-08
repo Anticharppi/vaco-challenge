@@ -3,6 +3,7 @@ import { ShipmentsService } from './shipments.service';
 import { ShipmentsController } from './shipments.controller';
 import {
   CreateShipmentUseCase,
+  GetShipmentByDroneIdUseCase,
   GetShipmentsUseCase,
   UpdateShipmentStatusUseCase,
 } from './use-cases';
@@ -15,6 +16,7 @@ import { RepositoriesModule } from 'src/repositories/repositories.module';
     CreateShipmentUseCase,
     UpdateShipmentStatusUseCase,
     GetShipmentsUseCase,
+    GetShipmentByDroneIdUseCase,
   ],
   imports: [RepositoriesModule],
 })

@@ -32,4 +32,9 @@ export class ShipmentsController {
   getAll() {
     return this.shipmentsService.getAll();
   }
+
+  @Get('/drone/:droneId')
+  getByDroneId(@Param('droneId') droneId: string) {
+    return this.shipmentsService.getByDroneId(droneId);
+  }
 }

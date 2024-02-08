@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateShipmentDto } from './dto/create-shipment.dto';
 import {
   CreateShipmentUseCase,
+  GetShipmentByDroneIdUseCase,
   GetShipmentsUseCase,
   UpdateShipmentStatusUseCase,
 } from './use-cases';
@@ -13,6 +14,7 @@ export class ShipmentsService {
     private readonly createShipmentUseCase: CreateShipmentUseCase,
     private readonly updateShipmentStatusUseCase: UpdateShipmentStatusUseCase,
     private readonly getShipmentsUseCase: GetShipmentsUseCase,
+    private readonly getShipmentByDroneIdUseCase: GetShipmentByDroneIdUseCase,
   ) {}
 
   public async create(createShipmentDto: CreateShipmentDto) {
@@ -25,5 +27,9 @@ export class ShipmentsService {
 
   public async getAll() {
     return await this.getShipmentsUseCase.execute();
+  }
+
+  public async getByDroneId(droneId: string) {
+    return await this.getShipmentByDroneIdUseCase.execute(droneId);
   }
 }
