@@ -37,4 +37,15 @@ export class DronesRepository {
       },
     });
   }
+
+  public async getBattery(id: string) {
+    return await this.db.drone.findUnique({
+      where: {
+        id,
+      },
+      select: {
+        batteryCapacity: true,
+      },
+    });
+  }
 }

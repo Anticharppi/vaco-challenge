@@ -5,6 +5,7 @@ import {
   Body,
   HttpCode,
   HttpStatus,
+  Param,
 } from '@nestjs/common';
 import { DronesService } from './drones.service';
 import { CreateDroneDto } from './dto/create-drone.dto';
@@ -23,5 +24,11 @@ export class DronesController {
   @HttpCode(HttpStatus.OK)
   public async availableToLoad() {
     return await this.dronesService.getAvailableToLoad();
+  }
+
+  @Get('battery/:id')
+  @HttpCode(HttpStatus.OK)
+  public async getBattery(@Param('id') id: string) {
+    return await this.dronesService.getBattery(id);
   }
 }
