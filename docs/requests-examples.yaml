@@ -1,0 +1,453 @@
+_type: export
+__export_format: 4
+__export_date: 2024-02-08T10:15:18.466Z
+__export_source: insomnia.desktop.app:v8.6.1
+resources:
+  - _id: req_5ba3d3e35a434674b3c88105af6339a8
+    parentId: fld_66e81fba0c01486abaadf37faed1b840
+    modified: 1707380402143
+    created: 1707380391494
+    url: localhost:3000/shipment-loads
+    name: /
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/8.6.1
+    authentication: {}
+    metaSortKey: -1707377251650
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_66e81fba0c01486abaadf37faed1b840
+    parentId: wrk_978d3300d8654d429c72e4a993802d43
+    modified: 1707382622156
+    created: 1707380391493
+    name: shipments-loads
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1707377249314
+    _type: request_group
+  - _id: wrk_978d3300d8654d429c72e4a993802d43
+    parentId: null
+    modified: 1707356403212
+    created: 1707356403212
+    name: Vaco
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_f328c9ed22e54be1b1dcc06f72a918ed
+    parentId: fld_66e81fba0c01486abaadf37faed1b840
+    modified: 1707383443033
+    created: 1707380391494
+    url: localhost:3000/shipment-loads
+    name: /
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"medicationId":"196fe954-23eb-4260-80b9-e733b48a9448",
+        	"shipmentId": "3503b757-9983-4614-a208-c2b3fdbe53b6",
+        	"medicationAmount":1
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/8.6.1
+    authentication: {}
+    metaSortKey: -1707373284135
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_db2f01fa29f345088ac24e2b7d94cb4d
+    parentId: fld_66e81fba0c01486abaadf37faed1b840
+    modified: 1707380391495
+    created: 1707380391495
+    url: localhost:3000/shipments/status/ee7cd9b8-b517-46bd-909c-dce050176627
+    name: /
+    description: ""
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"status":"IN_TRANSIT"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/8.6.1
+    authentication: {}
+    metaSortKey: -1707371300377.5
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_24d7782c50034ecb8d513e7fde5e1209
+    parentId: fld_54df91d5a4bc4e43afdcc8d2995ace09
+    modified: 1707377265429
+    created: 1707377251650
+    url: localhost:3000/shipments
+    name: /
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/8.6.1
+    authentication: {}
+    metaSortKey: -1707377251650
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_54df91d5a4bc4e43afdcc8d2995ace09
+    parentId: wrk_978d3300d8654d429c72e4a993802d43
+    modified: 1707377249214
+    created: 1707377249214
+    name: shipments
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1707377249214
+    _type: request_group
+  - _id: req_c417967df8004db288db883a82a61981
+    parentId: fld_54df91d5a4bc4e43afdcc8d2995ace09
+    modified: 1707382785868
+    created: 1707382571796
+    url: localhost:3000/shipments/drone/:dronId
+    name: /drone/:droneId
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/8.6.1
+    authentication: {}
+    metaSortKey: -1707375267892.5
+    isPrivate: false
+    pathParameters:
+      - name: dronId
+        value: 686356c1-a8c0-49ef-b59e-3a322912f14a
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_eeccf26c31bb4180936af827f5d019e0
+    parentId: fld_54df91d5a4bc4e43afdcc8d2995ace09
+    modified: 1707383416769
+    created: 1707377376101
+    url: localhost:3000/shipments
+    name: /
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"droneId":"c973df67-3955-4716-8bd8-d63d07cd127c"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/8.6.1
+    authentication: {}
+    metaSortKey: -1707373284135
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_77663c7d357a4971bcca59ab6f2b5fb4
+    parentId: fld_54df91d5a4bc4e43afdcc8d2995ace09
+    modified: 1707378084578
+    created: 1707377930494
+    url: localhost:3000/shipments/status/ee7cd9b8-b517-46bd-909c-dce050176627
+    name: /
+    description: ""
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"status":"IN_TRANSIT"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/8.6.1
+    authentication: {}
+    metaSortKey: -1707371300377.5
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_2e837e7e1dd043b4a968b28da1e06b5a
+    parentId: fld_65aa682cfc1e46afb2e0d87bfbbfe27e
+    modified: 1707381404552
+    created: 1707369316620
+    url: localhost:3000/medications
+    name: /
+    description: ""
+    method: POST
+    body:
+      mimeType: multipart/form-data
+      params:
+        - id: pair_608f2cf38f6343008a094c5d743bada6
+          name: image
+          value: ""
+          description: ""
+          type: file
+          fileName: C:\Users\carlo\Downloads\ab6761610000e5ebc94fb92f8143c3637c6f7b80.jpg
+        - id: pair_a820be72debe4538829652b251145096
+          name: name
+          value: Misoprostol
+          description: ""
+        - id: pair_f505acffdef840678a8c0a59dda28b25
+          name: weight
+          value: "250"
+          description: ""
+        - id: pair_7f12daf0657c472e9fd5b30132aa8b30
+          name: code
+          value: A_2
+          description: ""
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: multipart/form-data
+      - name: User-Agent
+        value: insomnia/8.6.1
+    authentication: {}
+    metaSortKey: -1707369316620
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_65aa682cfc1e46afb2e0d87bfbbfe27e
+    parentId: wrk_978d3300d8654d429c72e4a993802d43
+    modified: 1707369312933
+    created: 1707369312933
+    name: medications
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1707369312933
+    _type: request_group
+  - _id: req_109b610f22e44aad859c6d3b24c726c9
+    parentId: fld_65aa682cfc1e46afb2e0d87bfbbfe27e
+    modified: 1707371804982
+    created: 1707371798313
+    url: localhost:3000/medications
+    name: /
+    description: ""
+    method: GET
+    body:
+      mimeType: multipart/form-data
+      params:
+        - id: pair_1b688c144cb14bf997b2ca8de114990a
+          name: ""
+          value: ""
+          description: ""
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: multipart/form-data
+      - name: User-Agent
+        value: insomnia/8.6.1
+    authentication: {}
+    metaSortKey: -1707362862008.5
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_542ca473b1a445f0a98a68727d380a63
+    parentId: fld_63ce4459475e4f36b6f6db7680608606
+    modified: 1707377291064
+    created: 1707364630976
+    url: localhost:3000/drones/available-to-load
+    name: /
+    description: ""
+    method: GET
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"serialNumber": "AA00S00KD0I",
+        	"model": "Middleweight",
+        	"weight": 500,
+        	"batteryCapacity": 100
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/8.6.1
+    authentication: {}
+    metaSortKey: -1707377286647
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_63ce4459475e4f36b6f6db7680608606
+    parentId: wrk_978d3300d8654d429c72e4a993802d43
+    modified: 1707363453972
+    created: 1707363453972
+    name: drones
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1707363453972
+    _type: request_group
+  - _id: req_4660e6cf35ed40b18f156bc08e2d17be
+    parentId: fld_63ce4459475e4f36b6f6db7680608606
+    modified: 1707383358633
+    created: 1707383320723
+    url: localhost:3000/drones/battery/:id
+    name: /battery/:id
+    description: ""
+    method: GET
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"serialNumber": "AA00S00KD0I",
+        	"model": "Middleweight",
+        	"weight": 500,
+        	"batteryCapacity": 100
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/8.6.1
+    authentication: {}
+    metaSortKey: -1707377286597
+    isPrivate: false
+    pathParameters:
+      - name: id
+        value: c973df67-3955-4716-8bd8-d63d07cd127c
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_f83f7f5828444fff9c1b59668fc1ba91
+    parentId: fld_63ce4459475e4f36b6f6db7680608606
+    modified: 1707380719267
+    created: 1707356407397
+    url: localhost:3000/drones
+    name: /
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"serialNumber": "XXXXXXXXXX",
+        	"model": "Middleweight",
+        	"weightLimit": 500,
+        	"batteryCapacity": 100
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/8.6.1
+    authentication: {}
+    metaSortKey: -1707377286547
+    isPrivate: false
+    pathParameters: []
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_201729d902e2d1e75a7c2c2451d162ed86adfdb5
+    parentId: wrk_978d3300d8654d429c72e4a993802d43
+    modified: 1707356403221
+    created: 1707356403221
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1707356403221
+    _type: environment
+  - _id: jar_201729d902e2d1e75a7c2c2451d162ed86adfdb5
+    parentId: wrk_978d3300d8654d429c72e4a993802d43
+    modified: 1707356403224
+    created: 1707356403224
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
