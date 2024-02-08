@@ -9,4 +9,8 @@ export class MedicationsRepository {
   public async create(data: Prisma.MedicationCreateInput) {
     return await this.db.medication.create({ data });
   }
+
+  public async getAll() {
+    return await this.db.medication.findMany();
+  }
 }

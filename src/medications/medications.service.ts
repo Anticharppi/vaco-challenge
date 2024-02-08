@@ -1,11 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { CreateMedicationDto } from './dto/create-medication.dto';
-import { CreateMedicationUseCase } from './use-cases';
+import { CreateMedicationUseCase, GetMedicationsUseCase } from './use-cases';
 
 @Injectable()
 export class MedicationsService {
   constructor(
     private readonly createMedicationUseCase: CreateMedicationUseCase,
+    private readonly getMedicationsUseCase: GetMedicationsUseCase,
   ) {}
 
   public async create(
@@ -16,5 +17,9 @@ export class MedicationsService {
       createMedicationDto,
       file,
     );
+  }
+
+  public async getAll() {
+    return await this.getMedicationsUseCase.execute();
   }
 }

@@ -7,6 +7,7 @@ import {
   ParseFilePipe,
   MaxFileSizeValidator,
   FileTypeValidator,
+  Get,
 } from '@nestjs/common';
 import { MedicationsService } from './medications.service';
 import { CreateMedicationDto } from './dto/create-medication.dto';
@@ -31,5 +32,10 @@ export class MedicationsController {
     @Body() createMedicationDto: CreateMedicationDto,
   ) {
     return this.medicationsService.create(createMedicationDto, file);
+  }
+
+  @Get()
+  public async getAll() {
+    return this.medicationsService.getAll();
   }
 }
