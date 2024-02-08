@@ -7,7 +7,7 @@ import {
   Min,
   MinLength,
 } from 'class-validator';
-import { DroneModels, DroneStates } from 'src/enums';
+import { DroneModels } from 'src/enums';
 
 export class CreateDronDto {
   @IsString()
@@ -27,7 +27,4 @@ export class CreateDronDto {
   @Max(100)
   @Min(0)
   batteryCapacity: number;
-
-  @IsEnum(DroneStates)
-  state: DroneStates;
 }
