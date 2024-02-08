@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { DronesRepository, ShipmentsRepository } from 'src/repositories';
+import { DronesRepository, ShipmentsRepository } from '../../repositories';
 import { UpdateShipmentStatusDto } from '../dto/update-shipment-status.dto';
-import { DroneStates, ShipmentStatus } from 'src/enums';
+import { DroneStates, ShipmentStatus } from '../../enums';
 
 @Injectable()
 export class UpdateShipmentStatusUseCase {

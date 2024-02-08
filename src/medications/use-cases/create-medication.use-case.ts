@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateMedicationDto } from '../dto/create-medication.dto';
-import { MedicationsRepository } from 'src/repositories';
-import { ImageUploaderService } from 'src/image-uploader/image-uploader.service';
+import { MedicationsRepository } from '../../repositories';
+import { ImageUploaderService } from '../../image-uploader/image-uploader.service';
 import { v4 } from 'uuid';
 @Injectable()
 export class CreateMedicationUseCase {

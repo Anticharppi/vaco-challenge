@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from './prisma.service';
-import { CreateShipmentDto } from 'src/shipments/dto/create-shipment.dto';
-import { UpdateShipmentStatusDto } from 'src/shipments/dto/update-shipment-status.dto';
+import { CreateShipmentDto } from '../shipments/dto/create-shipment.dto';
+import { UpdateShipmentStatusDto } from '../shipments/dto/update-shipment-status.dto';
 
 @Injectable()
 export class ShipmentsRepository {

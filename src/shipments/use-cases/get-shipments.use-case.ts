@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { ShipmentsRepository } from 'src/repositories';
+import { ShipmentsRepository } from '../../repositories';
 
 @Injectable()
 export class GetShipmentsUseCase {

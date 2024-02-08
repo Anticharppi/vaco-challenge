@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { MedicationsRepository } from 'src/repositories';
+import { MedicationsRepository } from '../../repositories';
 @Injectable()
 export class GetMedicationsUseCase {
   constructor(private readonly medicationsRepository: MedicationsRepository) {}

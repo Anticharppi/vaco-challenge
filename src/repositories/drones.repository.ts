@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from './prisma.service';
 import { Prisma } from '@prisma/client';
-import { DroneStates } from 'src/enums';
-import { UpdateDroneDto } from 'src/drones/dto/update-drone.dto';
+import { DroneStates } from '../enums';
+import { UpdateDroneDto } from '../drones/dto/update-drone.dto';
 
 @Injectable()
 export class DronesRepository {

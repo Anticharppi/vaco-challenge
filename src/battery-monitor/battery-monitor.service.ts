@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Cron, CronExpression } from '@nestjs/schedule';
-import { DronesRepository } from 'src/repositories';
+import { DronesRepository } from '../repositories';
 import { Logger } from 'winston';
 
 @Injectable()

@@ -1,5 +1,5 @@
 import { Allow, IsUUID } from 'class-validator';
-import { ShipmentStatus } from 'src/enums';
+import { ShipmentStatus } from '../../enums';
 
 export class CreateShipmentDto {
   @IsUUID()

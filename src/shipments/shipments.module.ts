@@ -7,7 +7,7 @@ import {
   GetShipmentsUseCase,
   UpdateShipmentStatusUseCase,
 } from './use-cases';
-import { RepositoriesModule } from 'src/repositories/repositories.module';
+import { RepositoriesModule } from '../repositories/repositories.module';
 
 @Module({
   controllers: [ShipmentsController],

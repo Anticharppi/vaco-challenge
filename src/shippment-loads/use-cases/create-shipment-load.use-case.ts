@@ -3,9 +3,9 @@ import {
   MedicationsRepository,
   ShipmentLoadsRepository,
   ShipmentsRepository,
-} from 'src/repositories';
+} from '../../repositories';
 import { CreateShipmentLoadDto } from '../dto/create-shippment-load.dto';
-import { ShipmentStatus } from 'src/enums';
+import { ShipmentStatus } from '../../enums';
 
 @Injectable()
 export class CreateShipmentLoadUseCase {

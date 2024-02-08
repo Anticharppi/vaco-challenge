@@ -1,5 +1,5 @@
 import { IsEnum } from 'class-validator';
-import { ShipmentStatus } from 'src/enums';
+import { ShipmentStatus } from '../../enums';
 
 export class UpdateShipmentStatusDto {
   id: string;

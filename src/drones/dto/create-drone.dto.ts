@@ -7,7 +7,7 @@ import {
   Min,
   MinLength,
 } from 'class-validator';
-import { DroneModels } from 'src/enums';
+import { DroneModels } from '../../enums';
 
 export class CreateDroneDto {
   @IsString()

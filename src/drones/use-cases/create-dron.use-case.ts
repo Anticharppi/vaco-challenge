@@ -1,7 +1,7 @@
 import { DroneStates } from 'src/enums';
 import { CreateDroneDto } from '../dto/create-drone.dto';
 import { Injectable } from '@nestjs/common';
-import { DronesRepository } from 'src/repositories/drones.repository';
+import { DronesRepository } from '../../repositories/drones.repository';
 
 @Injectable()
 export class CreateDronUseCase {

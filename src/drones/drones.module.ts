@@ -6,7 +6,7 @@ import {
   GetAvailableToLoadUseCase,
   GetDroneBatteryUseCase,
 } from './use-cases';
-import { RepositoriesModule } from 'src/repositories/repositories.module';
+import { RepositoriesModule } from '../repositories/repositories.module';
 
 @Module({
   controllers: [DronesController],
