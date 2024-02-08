@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Drone {
+  id              String     @id @default(uuid())
+  serialNumber    String     @map("serial_number")
+  model           String
+  weight          Int
+  batteryCapacity Int        @map("battery_capacity")
+  state           String
+  shipments       Shipment[]
+
+  @@map("drones")
+}
+
+model Medication {
+  id            String         @id @default(uuid())
+  name          String
+  weight        Int
+  code          String
+  imageUrl      String         @map("image_url")
+  shipmetsLoads ShipmentLoad[]
+
+  @@map("medications")
+}
+
+model Shipment {
+  id      String @id @default(uuid())
+  drone   Drone  @relation(fields: [droneId], references: [id])
+  droneId String @map("drone_id")
+
+  @@map("shipments")
+}
+
+model ShipmentLoad {
+  id           String     @id @default(uuid())
+  medication   Medication @relation(fields: [medicationId], references: [id])
+  medicationId String     @map("medication_id")
+
+  @@map("shipment_loads")
+}
