@@ -36,7 +36,7 @@ export class UpdateShipmentStatusUseCase {
     if (shipment.status === ShipmentStatus.Delivered) {
       await this.dronesRepository.update({
         id: shipment.droneId,
-        state: DroneStates.IDLE,
+        state: DroneStates.DELIVERED,
       });
     }
 
