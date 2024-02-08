@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { DronesRepositoryService } from 'src/repositories';
-import { CreateDronDto } from './dtos';
+import { CreateDronDto } from '../../dtos';
 import { DroneStates } from 'src/enums';
 
 @Injectable()
