@@ -23,6 +23,9 @@ export class DronesRepository {
     return await this.db.drone.findMany({
       where: {
         state: DroneStates.IDLE,
+        batteryCapacity: {
+          gte: 25,
+        },
       },
     });
   }

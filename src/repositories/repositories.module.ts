@@ -3,6 +3,7 @@ import { DronesRepository } from './drones.repository';
 import { PrismaService } from './prisma.service';
 import { MedicationsRepository } from './medication.repository';
 import { ShipmentsRepository } from './shipments.repository';
+import { ShipmentLoadsRepository } from './shipment-loads.repository';
 
 @Module({
   providers: [
@@ -10,7 +11,13 @@ import { ShipmentsRepository } from './shipments.repository';
     PrismaService,
     MedicationsRepository,
     ShipmentsRepository,
+    ShipmentLoadsRepository,
   ],
-  exports: [DronesRepository, MedicationsRepository, ShipmentsRepository],
+  exports: [
+    DronesRepository,
+    MedicationsRepository,
+    ShipmentsRepository,
+    ShipmentLoadsRepository,
+  ],
 })
 export class RepositoriesModule {}

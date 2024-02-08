@@ -1,11 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { CreateShippmentLoadDto } from './dto/create-shippment-load.dto';
 import { UpdateShippmentLoadDto } from './dto/update-shippment-load.dto';
+import { CreateShipmentLoadUseCase } from './use-cases/create-shipment-load.use-case';
 
 @Injectable()
 export class ShippmentLoadsService {
-  create(createShippmentLoadDto: CreateShippmentLoadDto) {
-    return 'This action adds a new shippmentLoad';
+  constructor(
+    private readonly createShipmentLoadUseCase: CreateShipmentLoadUseCase,
+  ) {}
+  public async create(createShippmentLoadDto: CreateShippmentLoadDto) {
+    return await this.createShipmentLoadUseCase.execute(createShippmentLoadDto);
   }
 
   findAll() {

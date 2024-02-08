@@ -14,7 +14,7 @@ model Drone {
   id              String     @id @default(uuid())
   serialNumber    String     @map("serial_number")
   model           String
-  weight          Int
+  weightLimit     Int        @map("weight_limit")
   batteryCapacity Int        @map("battery_capacity")
   state           String
   shipments       Shipment[]
@@ -34,10 +34,11 @@ model Medication {
 }
 
 model Shipment {
-  id      String @id @default(uuid())
-  drone   Drone  @relation(fields: [droneId], references: [id])
-  droneId String @map("drone_id")
-  status  String
+  id            String         @id @default(uuid())
+  drone         Drone          @relation(fields: [droneId], references: [id])
+  droneId       String         @map("drone_id")
+  status        String
+  shipmentLoads ShipmentLoad[]
 
   @@map("shipments")
 }
@@ -46,6 +47,8 @@ model ShipmentLoad {
   id           String     @id @default(uuid())
   medication   Medication @relation(fields: [medicationId], references: [id])
   medicationId String     @map("medication_id")
+  shipment     Shipment   @relation(fields: [shipmentId], references: [id])
+  shipmentId   String     @map("shipment_id")
 
   @@map("shipment_loads")
 }

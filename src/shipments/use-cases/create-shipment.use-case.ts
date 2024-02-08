@@ -15,8 +15,18 @@ export class CreateShipmentUseCase {
       throw new HttpException('Drone was not found', HttpStatus.NOT_FOUND);
     }
     if (dron.state !== DroneStates.IDLE) {
-      throw new HttpException('Drone is not available', HttpStatus.CONFLICT);
+      throw new HttpException(
+        'Cannot create shipment because drone is not available',
+        HttpStatus.CONFLICT,
+      );
     }
+    if (dron.batteryCapacity < 25) {
+      throw new HttpException(
+        'Cannot create shipment because dron battery is below 25%',
+        HttpStatus.CONFLICT,
+      );
+    }
+
     const shipment = await this.shipmentsRepository.create(createShipmentDto);
     await this.dronesRepository.update({
       id: createShipmentDto.droneId,

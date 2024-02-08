@@ -28,6 +28,9 @@ export class ShipmentsRepository {
       data: {
         status: data.status,
       },
+      include: {
+        drone: true,
+      },
     });
   }
 
@@ -35,6 +38,9 @@ export class ShipmentsRepository {
     return await this.db.shipment.findUnique({
       where: {
         id,
+      },
+      include: {
+        drone: true,
       },
     });
   }

@@ -1,13 +1,5 @@
 import { Type } from 'class-transformer';
-import {
-  IsInt,
-  IsNumber,
-  IsNumberString,
-  IsOptional,
-  IsString,
-  Matches,
-  Min,
-} from 'class-validator';
+import { IsNumber, IsString, Matches, Min } from 'class-validator';
 
 export class CreateMedicationDto {
   @IsString()

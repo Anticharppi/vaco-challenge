@@ -10,6 +10,10 @@ export class MedicationsRepository {
     return await this.db.medication.create({ data });
   }
 
+  public async getById(id: string) {
+    return await this.db.medication.findUnique({ where: { id } });
+  }
+
   public async getAll() {
     return await this.db.medication.findMany();
   }

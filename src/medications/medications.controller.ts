@@ -18,7 +18,7 @@ export class MedicationsController {
   constructor(private readonly medicationsService: MedicationsService) {}
 
   @Post()
-  @UseInterceptors(FileInterceptor('file'))
+  @UseInterceptors(FileInterceptor('image'))
   public async create(
     @UploadedFile(
       new ParseFilePipe({

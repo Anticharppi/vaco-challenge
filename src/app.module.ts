@@ -6,7 +6,7 @@ import { MedicationsModule } from './medications/medications.module';
 import { DronesModule } from './drones/drones.module';
 import { RepositoriesModule } from './repositories/repositories.module';
 import { ShipmentsModule } from './shipments/shipments.module';
-import { ShippmentLoadsModule } from './shippment-loads/shippment-loads.module';
+import { ShippmentLoadsModule } from './shippment-loads/shipment-loads.module';
 
 @Module({
   imports: [

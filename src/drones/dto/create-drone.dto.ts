@@ -21,7 +21,7 @@ export class CreateDroneDto {
   @IsInt()
   @Max(500)
   @Min(1)
-  weight: number;
+  weightLimit: number;
 
   @IsInt()
   @Max(100)
