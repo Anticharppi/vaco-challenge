@@ -1,4 +1,4 @@
-import { DroneStates } from 'src/enums';
+import { DroneStates } from '../../enums';
 import { CreateDroneDto } from '../dto/create-drone.dto';
 import { Injectable } from '@nestjs/common';
 import { DronesRepository } from '../../repositories/drones.repository';

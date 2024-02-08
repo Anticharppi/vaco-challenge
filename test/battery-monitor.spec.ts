@@ -1,5 +1,5 @@
-import { DronesRepository } from '../../src/repositories/drones.repository';
-import { BatteryMonitorService } from '../../src/battery-monitor/battery-monitor.service';
+import { DronesRepository } from '../src/repositories/drones.repository';
+import { BatteryMonitorService } from '../src/battery-monitor/battery-monitor.service';
 import { Logger } from 'winston';
 
 const getAllMock = jest.fn();
@@ -15,7 +15,7 @@ jest.mock('winston', () => {
   };
 });
 
-jest.mock('../../src/repositories/drones.repository', () => {
+jest.mock('../src/repositories/drones.repository', () => {
   return {
     DronesRepository: jest.fn().mockImplementation(() => {
       return {
@@ -32,7 +32,7 @@ const batteryMonitorService = new BatteryMonitorService(
   dronesRepository,
 );
 
-describe.only('BatteryMonitorService', () => {
+describe('BatteryMonitorService', () => {
   beforeEach(jest.clearAllMocks);
 
   it("should log a warning if the drone's battery is below 25%", async () => {
