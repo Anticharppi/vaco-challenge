@@ -1,7 +1,15 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ShipmentsService } from './shipments.service';
 import { CreateShipmentDto } from './dto/create-shipment.dto';
-import { UpdateShipmentDto } from './dto/update-shipment.dto';
+import { UpdateShipmentStatusDto } from './dto/update-shipment-status.dto';
 
 @Controller('shipments')
 export class ShipmentsController {
@@ -12,23 +20,16 @@ export class ShipmentsController {
     return this.shipmentsService.create(createShipmentDto);
   }
 
+  @Patch('/status/:id')
+  update(
+    @Param('id') id: string,
+    @Body() updateShipmentDto: UpdateShipmentStatusDto,
+  ) {
+    return this.shipmentsService.update({ id, ...updateShipmentDto });
+  }
+
   @Get()
-  findAll() {
-    return this.shipmentsService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.shipmentsService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateShipmentDto: UpdateShipmentDto) {
-    return this.shipmentsService.update(+id, updateShipmentDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.shipmentsService.remove(+id);
+  getAll() {
+    return this.shipmentsService.getAll();
   }
 }

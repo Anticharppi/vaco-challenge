@@ -1,26 +1,29 @@
 import { Injectable } from '@nestjs/common';
 import { CreateShipmentDto } from './dto/create-shipment.dto';
-import { UpdateShipmentDto } from './dto/update-shipment.dto';
+import {
+  CreateShipmentUseCase,
+  GetShipmentsUseCase,
+  UpdateShipmentStatusUseCase,
+} from './use-cases';
+import { UpdateShipmentStatusDto } from './dto/update-shipment-status.dto';
 
 @Injectable()
 export class ShipmentsService {
-  create(createShipmentDto: CreateShipmentDto) {
-    return 'This action adds a new shipment';
+  constructor(
+    private readonly createShipmentUseCase: CreateShipmentUseCase,
+    private readonly updateShipmentStatusUseCase: UpdateShipmentStatusUseCase,
+    private readonly getShipmentsUseCase: GetShipmentsUseCase,
+  ) {}
+
+  public async create(createShipmentDto: CreateShipmentDto) {
+    return await this.createShipmentUseCase.execute(createShipmentDto);
   }
 
-  findAll() {
-    return `This action returns all shipments`;
+  public async update(updateShipmentDto: UpdateShipmentStatusDto) {
+    return await this.updateShipmentStatusUseCase.execute(updateShipmentDto);
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} shipment`;
-  }
-
-  update(id: number, updateShipmentDto: UpdateShipmentDto) {
-    return `This action updates a #${id} shipment`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} shipment`;
+  public async getAll() {
+    return await this.getShipmentsUseCase.execute();
   }
 }

@@ -37,6 +37,7 @@ model Shipment {
   id      String @id @default(uuid())
   drone   Drone  @relation(fields: [droneId], references: [id])
   droneId String @map("drone_id")
+  status  String
 
   @@map("shipments")
 }
