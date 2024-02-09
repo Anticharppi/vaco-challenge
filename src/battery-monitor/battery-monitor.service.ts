@@ -11,7 +11,7 @@ export class BatteryMonitorService {
     private readonly dronesRepository: DronesRepository,
   ) {}
 
-  @Cron(CronExpression.EVERY_30_MINUTES)
+  @Cron(CronExpression.EVERY_30_SECONDS)
   public async handleCron() {
     const drones = await this.dronesRepository.getAll();
     for (const drone of drones) {

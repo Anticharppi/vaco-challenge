@@ -2,6 +2,7 @@
 
 [Here](docs/sequence-diagram.png) is a sequence diagram to understand the flow of the information
 and [here](docs/requests-examples.yaml) is a example from requests that can be imported in a [insomnia](https://insomnia.rest) client to execute
+
 ## Environment
 
 - node version: 18
@@ -45,3 +46,6 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+### Battery monitor service
+
+This service have a job that checks every 30 seconds the drones battery percentaje. If a dron  battery reaches below the 25%, a log will be writed on the route `<rootDirectory>/logs/low-battery-monitor.log` with the date, time, dron id and percentaje. Otherwise, a log with the same structure will be placed in `<rootDirectory>/logs/normal-battery-monitor.log`.
